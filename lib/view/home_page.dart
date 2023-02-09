@@ -1,6 +1,8 @@
 import 'package:eshopee/utils/colors.dart';
+import 'package:eshopee/view/cart_display_page.dart';
 import 'package:eshopee/view/category_display_screen.dart';
 import 'package:eshopee/view/product_display_page.dart';
+import 'package:eshopee/view/profile_display_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -42,6 +44,8 @@ class _HomePageState extends State<HomePage> {
               children: const [
                 ProductDisplayPage(),
                 CategoryDisplayPage(),
+                CartDisplayPage(),
+                ProfileDisplayPage(),
               ],
             ),
             Positioned(
@@ -59,9 +63,15 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     ...tabBarIcons.map((icon) => IconButton(
                         onPressed: () {
-                          icon == FontAwesomeIcons.house
-                              ? pageController.jumpToPage(0)
-                              : pageController.jumpToPage(1);
+                          if (icon == FontAwesomeIcons.house) {
+                            pageController.jumpToPage(0);
+                          } else if (icon == FontAwesomeIcons.compass) {
+                            pageController.jumpToPage(1);
+                          } else if (icon == FontAwesomeIcons.cartShopping) {
+                            pageController.jumpToPage(2);
+                          } else if (icon == FontAwesomeIcons.user) {
+                            pageController.jumpToPage(3);
+                          }
                         },
                         icon: Icon(
                           icon,

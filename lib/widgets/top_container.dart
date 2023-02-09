@@ -6,9 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TopContainer extends StatelessWidget {
   final String title;
-  final String searchBarTitle;
-  const TopContainer(
-      {super.key, required this.title, required this.searchBarTitle});
+  final String? searchBarTitle;
+  const TopContainer({super.key, required this.title, this.searchBarTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +72,7 @@ class TopContainer extends StatelessWidget {
               ),
               const SizedBox(width: 20),
               Text(
-                searchBarTitle,
+                searchBarTitle.toString(),
                 style: const TextStyle(
                     color: Colors.black38, fontWeight: FontWeight.w400),
               )
